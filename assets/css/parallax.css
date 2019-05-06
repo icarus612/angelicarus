@@ -6,6 +6,9 @@ h2, h3, h4, h5, h6, p, button {
   font-family: 'Quicksand', sans-serif;
   color: rgb(255, 255, 255);
 }
+.indi {
+  font-family: 'Indie Flower', cursive !important;
+}
 code {
   text-align: left;
   padding: 10px;
@@ -156,4 +159,3 @@ code {
     height: 2700px;
   }
 }
-
