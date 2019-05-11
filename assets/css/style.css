@@ -36,7 +36,7 @@
 
 .first-throbber {
     top: 50%;
-    right: 11px;
+    right: 9px;
 }
 
 .top-throbber {
@@ -49,9 +49,19 @@
     left: 68px !important;
 }
 
+.wheel-end-throbber {
+    top: 50%;
+    left: 50% !important;
+}
 
 
-
+.top-box {
+  background-color: rgba(255,255,255,.8) !important;
+  padding: 5px;
+  border: 2px solid;
+  border-color:  rgba(175, 70, 211, .9)!important;
+  box-shadow: 0 10px 30px -12px rgba(250, 250, 250, 0.50), 0 4px 25px 0px rgba(250, 250, 250, 0.16), 0 8px 10px -5px rgba(250, 250, 250, 0.25) !important;
+}
 
 
 
@@ -64,7 +74,7 @@
     transition: all 0.25s;
     position: relative;
     padding: 0.5em;
-    height: 200px
+    height: 120px
 }
 .step4{
     flex: 1 0 200px;
@@ -72,9 +82,8 @@
     transition: all 0.25s;
     position: relative;
     padding: 0.5em;
-    height: 200px;
-    border-left: 2px solid #0c1b5d;
-
+    height: 280px;
+    border-left: 2px solid rgb(175, 70, 211);
 }
 .step2{
     flex: 1 0 200px;
@@ -83,11 +92,12 @@
     position: relative;
     padding: 0.5em;
     border: 2px solid #0c1b5d;
+    margin-right: 100px;
   }
 
 
 .step{
-    border-left: 2px solid #0c1b5d;
+    border-left: 2px solid rgb(175, 70, 211);
     margin: 12px;
     padding-left: 30px !important;
     flex-basis: 100%;
@@ -102,6 +112,16 @@
     background-color:  rgba(175, 70, 211, 1);
     position: absolute;
     left: 0;
+}
+.animated-dot2 {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color:  rgba(175, 70, 211, 1);
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    z-index: -1
 }
 .step{
     flex: 1 0 200px;
