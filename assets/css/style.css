@@ -1,26 +1,17 @@
-.background {
-    background: -moz-linear-gradient(340deg, rgba(2,0,36,1) -5%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 95%);
-    background: -webkit-linear-gradient(340deg, rgba(2,0,36,1)1 -5%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 95%);
-    background: linear-gradient(340deg, rgba(2,0,36,1) -5%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 95%);
+.background-dotsLI {
+  background-color: #eee
+  color: #111
 }
 
-#dot-start.container{
-    background-color: #eee;
-    border-radius: 10px;
-    box-shadow: 5px 10px 100px -15px #999
-    
-}
 .throbber {
     display: block;
     width: 14px;
     height: 14px;
-    background: #02A9F7;
+    background:  rgba(175, 70, 211, 1);
     border-radius: 100%;
-    box-shadow: 0 0 0 2px #02A9F7;
+    box-shadow: 0 0 0 2px  rgba(175, 70, 211, 1);
     z-index: 3000;
     margin-top: -8px;
-    top: 50%;
-    left: -8px;
     position: absolute;
 }
 
@@ -35,17 +26,66 @@
     height: 14px;
     border: 1px solid hsla(0%,0%,0%,.1);
     border-radius: 100%;
-    box-shadow: 0 0 0 2px #02A9F7;
-    background: hsla(.55, .99 , .59, .2);
+    box-shadow: 0 0 0 2px  rgba(175, 70, 211, .9);
+    background: rgba(105, 50, 151, .9);
 }
+#list-stage .throbber{
+  top: 50%;
+  left: -8px;
+}
+
+.first-throbber {
+    top: 50%;
+    right: 11px;
+}
+
 .top-throbber {
     top: 100%;
     left: 68px;
 }
+
 .mid-throbber {
     top: 50%;
-    left: 68px;
+    left: 68px !important;
 }
+
+
+
+
+
+
+
+
+
+
+.step3{
+    flex: 1 0 200px;
+    text-align: center;
+    transition: all 0.25s;
+    position: relative;
+    padding: 0.5em;
+    height: 200px
+}
+.step4{
+    flex: 1 0 200px;
+    text-align: center;
+    transition: all 0.25s;
+    position: relative;
+    padding: 0.5em;
+    height: 200px;
+    border-left: 2px solid #0c1b5d;
+
+}
+.step2{
+    flex: 1 0 200px;
+    text-align: center;
+    transition: all 0.25s;
+    position: relative;
+    padding: 0.5em;
+    border: 2px solid #0c1b5d;
+  }
+
+
 .step{
     border-left: 2px solid #0c1b5d;
     margin: 12px;
@@ -59,7 +99,7 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #2D80C3;
+    background-color:  rgba(175, 70, 211, 1);
     position: absolute;
     left: 0;
 }

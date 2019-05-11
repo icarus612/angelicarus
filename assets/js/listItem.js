@@ -1,7 +1,7 @@
 
         let locate = document.querySelectorAll(".throbber-inner"),
-            startX = () => (document.querySelector("#dot-outer").offsetWidth - document.querySelector("#dot-start").offsetWidth)/2 +85,
-            stage = document.querySelector("#stage"),
+            startX = () => (document.querySelector("#list-dot-outer").offsetWidth - document.querySelector("#list-dot-start").offsetWidth)/2 +85,
+            stage = document.querySelector("#list-stage"),
             fullHeight = () => stage.offsetHeight,
             fullWidth = () => stage.offsetWidth,
             startY = () => fullHeight()/2-5,
@@ -36,10 +36,21 @@
               duration: 1000,
             }).add({
                 targets: ".mv-1",
-                translateX: [startX(), (startX() + fullWidth() - endX(0))],
-                translateY: [startY(), endY(0)],
-                duration: 600,
+                translateX: {
+                    value: [startX(), (startX() + fullWidth() - endX(0))],
+                    easing: "easeInQuint",
+                  },
+                translateY: {
+                    value: [startY(), endY(2)],
+                    easing: "linear",
+                  },
+                duration: 500,
                 easing: "easeOutCubic"
+            }).add({
+              targets: ".mv-1",
+              opacity: [1, 0],
+              easing: "linear",
+              duration: 1,
             }).add({
               targets: ".pulse3",
               opacity: [1, 0],
@@ -56,8 +67,13 @@
                     {value: [endY(0), startY()]}
                 ],
                 translateX: { value: [startX(), (startX() + fullWidth() - endX(1))], easing: "linear",},
-                duration: 1300,
+                duration: 1400,
                 delay: 100
+            }).add({
+              targets: ".mv-3",
+              opacity: [1, 0],
+              easing: "linear",
+              duration: 1,
             }).add({
               targets: ".pulse4",
               opacity: [1, 0],
@@ -109,11 +125,11 @@
                   },
                 ],
                 backgroundColor: {
-                    value: ["#2D80C3", "#fff"],
+                    value: [" rgba(175, 70, 211, 1)", " rgba(0, 0, 0, 0)"],
                     delay: 450,
                     duration: 100
                 },
-                border: [0, "2px solid #2D80C3"],
+                border: [0, "2px solid  rgba(175, 70, 211, 1)"],
                 borderRadius: {
                     value: ["50%", "0px"],
                     delay: 450,
@@ -126,6 +142,11 @@
                     easing: "easeInOutCirc"
                 },
 
+            }).add({
+              targets: ".mv-2",
+              opacity: [1, 0],
+              easing: "linear",
+              duration: 1,
             }).add({
               targets: ".pulse5",
               opacity: [1, 0],

@@ -4,7 +4,6 @@ h1,  a {
 }
 h2, h3, h4, h5, h6, p, button {
   font-family: 'Quicksand', sans-serif;
-  color: rgb(255, 255, 255);
 }
 .indi {
   font-family: 'Indie Flower', cursive !important;
@@ -54,10 +53,10 @@ code {
 }
 
 .transPurple {
-  background-image: linear-gradient(to bottom right, rgba(175, 70, 211, .9), rgba(147, 112, 219, .5)) !important;
+  background-color: rgba(225,225,225,.8);
   padding: 5px;
   border: 5px solid;
-  border-color: rgba(225,225,225,1.8) !important;
+  border-color:  rgba(175, 70, 211, .9)!important;
   padding: 5px;
   box-shadow: 0 10px 30px -12px rgba(250, 250, 250, 0.50), 0 4px 25px 0px rgba(250, 250, 250, 0.16), 0 8px 10px -5px rgba(250, 250, 250, 0.25) !important;
 }
@@ -147,7 +146,7 @@ code {
 .dot > circle {
   fill: rgba(175, 70, 211, .9);
 }
-#contactMe{
+#top{
   background: url('../images/bg11.png');
   background-repeat: no-repeat;
   background-size: 600px;
