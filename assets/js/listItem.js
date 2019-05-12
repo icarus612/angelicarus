@@ -14,11 +14,11 @@
             if (check.test(x)) steps.push(stage.childNodes[i])
         }
 
-        let animate = () =>{
+        let animateLI = () =>{
             let animation = anime.timeline({
                 easing: "easeInOutCubic",
                 complete: function(anim) {
-                    animate()
+                    animateLI()
                 }
             }).add({
                 targets: ".animated-dot",
@@ -158,7 +158,7 @@
             })
             return animation
         }
-        animate()
+        animateLI();
         anime({
           targets: ".pulse1",
           scale: 1.6,

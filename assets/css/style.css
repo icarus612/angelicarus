@@ -5,11 +5,11 @@
 
 .spring{
     position: absolute;
-    border-top: 2px solid rgba(175, 70, 211, 1);
+    border-bottom: 2px solid rgba(175, 70, 211, 1);
     width: 30px;
     height: 30px;
     top: 50%;
-    left: 75px !important;
+    left: 60px !important;
     position: absolute;
     transform: rotateZ(-40deg);
 

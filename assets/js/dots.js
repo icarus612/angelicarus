@@ -22,7 +22,7 @@ const makeSVG = (el, howMany, classSVG, classElement, w, h, apnd) => {
                 dot.push(circle);
                 dot[i].className += classElement[i % classElement.length];
                 dot[i].setAttributeNS(null, 'cy', -5);
-                dot[i].setAttributeNS(null, 'cx', w - 15);
+                dot[i].setAttributeNS(null, 'cx', -15);
                 dot[i].setAttributeNS(null, 'r', 5);
                 svg.appendChild(dot[i]);
                 dot[i].className +=  ` dot dotNo${i}`;

@@ -11,7 +11,7 @@
 	</head>
 	<body>
 
-					<section class="py-5 position-relative overflow-hidden pt-5" id='top'>
+					<section class="py-5 position-relative overflow-visible pt-5" id='top'>
 						<div class="container">
 
 							<div class="d-flex flex-wrap flex-row">
@@ -39,7 +39,7 @@
 								</div>
 								<div class="col-1 py-md-3 text-center text-white my-4">
 									<div class="throbber mid-throbber">
-										<div class="throbber-inner"></div>
+										<div class="throbber-inner pulse6"></div>
 									</div>
 								</div>
 								<div class="col-10 py-md-3 text-center text-white my-4">
@@ -53,7 +53,7 @@
 					</section>
 
 
-													<section class="background-dotsLI p-5"  id="dot-outer">
+													<section class="background-dotsLI p-5 overflow-visible"  id="dot-outer">
 														<div class="container" id="dot-start">
 																		<div class="d-flex flex-row flex-wrap flex-nowrap justify-content-start align-items-stretch" >
 
@@ -267,8 +267,78 @@
 			<script src="assets/js/listItem.js"></script>
 
 			<script defer>
+
+
+				anime.timeline({
+					loop: true,
+					easing: "linear",
+				}).add({
+					targets: ".mv-6",
+					translateX: [0, 550],
+					duration: 1000,
+
+				}).add({
+					targets: ".pulse6",
+					opacity: [1, 0],
+					scale: [
+						{value: [1, 2]},
+					],
+					easing: "easeOutCubic",
+					duration: 1000,
+				}).add({
+					targets: ".mv-6",
+					translateY: [0, 315],
+					duration: 1000,
+				}).add({
+					targets: ".spring",
+					borderRadius: [
+						{value: [0, "50%"]},
+						{value: ["50%", 0]},
+					],
+					duration: 200,
+					direction: "alternate"
+				}).add({
+					targets: ".mv-6",
+					translateX: [
+						{
+							value: [500, 200],
+							duration: 910,
+							easing: "linear"
+						},
+						{
+							value: [200, -300],
+							duration: 910,
+							easing: "linear"
+						},
+					],
+					translateY: [
+						{
+							value: [315, 200],
+							duration: 450,
+							easing: "easeOutCirc"
+						},
+						{
+							value: [200, 400],
+							duration: 450,
+							easing: "easeInCirc"
+						},
+						{
+							value: [400, 200],
+							duration: 450,
+							easing: "easeOutCirc"
+						},
+						{
+							value: [200, 700],
+							duration: 450,
+							easing: "easeInCirc"
+						},
+					],
+					duration: 5000,
+
+				})
+
 				let howFar = () => {
-					return screen.width > 500 ? (320) : (250);
+					return screen.width > 500 ? 320 : 250;
 				}
 
 
