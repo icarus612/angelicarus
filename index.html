@@ -341,29 +341,15 @@
 					return screen.width > 500 ? 320 : 250;
 				}
 
-
-				function changeMe(){
-					let v = document.getElementById("curveValue").value;
-					if (v == "cubic") console.log("cubicX")
-
-					if (v == "cubic") return "cubicX";
-					if (v == "linear") return "linearX";
-				};
-				document.getElementById("curveValue").onchange=function(){
-					dotsMovement(dotsRTL, [40, 360], [10, 360], 1000, changeMe(), "#F30659");
-					dotsMovement(dotsLTR, [360, 40], [10, 360], 1000, changeMe(), "#F30659");
-					dotsMovement(dotsLTR2, [560, 200], [10, 360], 1000, changeMe(), "#F30659");
-				};
+		
 
 
 				let dotsRTL = makeSVG("quest1", 6, "dot", ["dot-c1", "dot-c2"], "100%", 360, ".mv1");
 				let dotsLTR = makeSVG("quest2", 6, "dot", ["dot-c1", "dot-c2"], "100%", 360, ".mv2");
 				let dotsLTR2 = makeSVG("quest3", 6, "dot", ["dot-c1", "dot-c2"], "100%", 360, ".mv3");
-				dotsMovement(dotsRTL, [40, 360], [10, 360], 1000, changeMe(), "#F30659");
-				dotsMovement(dotsLTR, [360, 40], [10, 360], 1000, changeMe(), "#F30659");
-				dotsMovement(dotsLTR2, [560, 200], [10, 360], 1000, changeMe(), "#F30659");
-
-
+				dotsMovement(dotsRTL, [40, 360], [10, 360], 1000, "cubicX", "#F30659");
+				dotsMovement(dotsLTR, [360, 40], [10, 360], 1000, "cubicX", "#F30659");
+				dotsMovement(dotsLTR2, [560, 200], [10, 360], 1000, "cubicX", "#F30659");
 			</script>
 		</article>
 	</body>
