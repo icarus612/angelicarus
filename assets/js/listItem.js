@@ -1,25 +1,24 @@
 
-        let locate = document.querySelectorAll(".throbber-inner"),
-            startX = () => (document.querySelector("#list-dot-outer").offsetWidth - document.querySelector("#list-dot-start").offsetWidth)/2 +85,
-            stage = document.querySelector("#list-stage"),
-            fullHeight = () => stage.offsetHeight,
-            fullWidth = () => stage.offsetWidth,
-            startY = () => fullHeight()/2-5,
-            endY = (e) => steps[e].offsetHeight/2+8,
-            endX = (e) => steps[e].offsetWidth+85,
-            steps = [];
-        for (let i = 0; i < stage.childNodes.length; i++){
-            let check = new RegExp("step");
-            let x = `${stage.childNodes[i].className}`
-            if (check.test(x)) steps.push(stage.childNodes[i])
-        }
+
 
         let animateLI = () =>{
+          let locate = document.querySelectorAll(".throbber-inner"),
+              startX = () => (document.querySelector("#list-dot-outer").offsetWidth - document.querySelector("#list-dot-start").offsetWidth)/2 +85,
+              stage = document.querySelector("#list-stage"),
+              fullHeight = () => stage.offsetHeight,
+              fullWidth = () => stage.offsetWidth,
+              startY = () => fullHeight()/2-5,
+              endY = (e) => steps[e].offsetHeight/2+8,
+              endX = (e) => steps[e].offsetWidth+85,
+              steps = [];
+          for (let i = 0; i < stage.childNodes.length; i++){
+              let check = new RegExp("step");
+              let x = `${stage.childNodes[i].className}`
+              if (check.test(x)) steps.push(stage.childNodes[i])
+          }
             let animation = anime.timeline({
                 easing: "easeInOutCubic",
-                complete: function(anim) {
-                    animateLI()
-                }
+
             }).add({
                 targets: ".animated-dot",
                 translateY: [-5, startY()],
@@ -129,7 +128,11 @@
                     delay: 450,
                     duration: 100
                 },
-                border: [0, "2px solid  rgba(175, 70, 211, 1)"],
+                border: {
+                  value: [0, "2px solid  rgba(175, 70, 211, 1)"],
+                  duration: 100
+
+                },
                 borderRadius: {
                     value: ["50%", "0px"],
                     delay: 450,
@@ -158,13 +161,3 @@
             })
             return animation
         }
-        animateLI();
-        anime({
-          targets: ".pulse1",
-          scale: 1.6,
-          border: "0px",
-          easing: "easeInCubic",
-          direction: "alternate",
-          loop: true,
-          duration: 1500,
-        })
