@@ -14,9 +14,8 @@
     transform: rotateZ(-40deg);
 
 }
-#top-container{
-  margin-bottom: 140px;
-}
+
+
 .throbber {
     display: block;
     width: 14px;
@@ -46,6 +45,10 @@
 #list-stage .throbber{
   top: 50%;
   left: -8px;
+}
+
+#dot-outer{
+  margin-top: 130px;
 }
 
 .first-throbber {
@@ -86,24 +89,21 @@
 
 
 .step3{
-    flex: 1 0 200px;
     text-align: center;
     transition: all 0.25s;
     position: relative;
     padding: 0.5em;
-    height: 120px
+    height: 120px !important;
 }
 .step4{
-    flex: 1 0 200px;
     text-align: center;
     transition: all 0.25s;
     position: relative;
     padding: 0.5em;
-    height: 280px;
+    height: 280px !important;
     border-left: 2px solid rgb(175, 70, 211);
 }
 .step2{
-    flex: 1 0 200px;
     text-align: center;
     transition: all 0.25s;
     position: relative;
@@ -129,6 +129,7 @@
     background-color:  rgba(175, 70, 211, 1);
     position: absolute;
     left: 0;
+    opacity: 0;
 }
 .animated-dot2 {
     width: 10px;
@@ -148,73 +149,7 @@
     padding: 0.5em;
 }
 
-.step > div{
-    margin-bottom: 25px
-}
-.step > .image {
-    display: inline-block
-}
-.workflow > .step {
-  padding: 0.5em;
-  flex: 1 0 200px;
-  text-align: center;
-  transition: all 0.25s;
-  position: relative;
-}
-.workflow > .step > div {
-    margin-bottom: 25px;
-}
-.workflow > .step > .image {
-    display: inline-block;
-}
-.workflow > .step > .image > img {
-    width: 120px;
-    height: 100px;
-    margin-bottom: 1em;
-}
-.workflow > .step > .image .img-landing {
-    width: 150px;
-    height: auto;
-    margin-bottom: 1em;
-}
-.workflow > .step > .image .title {
-    white-space: nowrap;
-}
-.workflow > .step .index {
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.15);
-    width: 2em;
-    height: 2em;
-    display: inline-block;
-    line-height: 2em;
-}
-.workflow > .step .desc {
-    display: inline-block;
-    padding: 0 1em;
-    color: #666666;
-    text-align: left;
-    text-justify: auto;
-}
-.workflow > .step .detail {
-    font-size: 14px;
-}
-.workflow > .step .divider {
-    width: 2px;
-    height: 15px;
-    position: relative;
-    background: #02A9F7;
-    display: inline-block;
-}
-.workflow > .step .divider:after {
-    position: absolute;
-    bottom: -8px;
-    left: -3px;
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #02A9F7;
-}
+
 .workflow{
     position: relative;
 }
