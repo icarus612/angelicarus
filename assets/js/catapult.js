@@ -1,20 +1,19 @@
 
 
-        let catapult = () =>{
+        let catapult = () => {
           let start = document.querySelector(".pulse8").getBoundingClientRect()
           let middle = document.querySelector(".pulse7").getBoundingClientRect()
           let end = document.querySelector(".pulse1").getBoundingClientRect()
           let wall = document.querySelector(".step4").getBoundingClientRect()
           let path = document.querySelector("#pathWidth").getBoundingClientRect()
-          let firstX = () => middle.left - start.left
-          let firstY = () => middle.top - start.top
-          let secondX = () => start.left - end.left
-          let secondY = () => end.top - start.top
-          let aroundSideX = (e=0) => path.right - start.left + e
-          let aroundSideY = (e=0) => path.bottom - start.top + e
-          let overWallX = (e=0) => wall.left - start.left + e
-          let overWallY = (e=0) => wall.top - start.top + e
-          console.log(aroundSideX())
+          let firstX = (e=0) => middle.left - start.left + e;
+          let firstY = (e=0) => middle.top - start.top + e;
+          let secondX = (e=0) => (end.right + end.left)/2 - (start.right + start.left)/2 + e;
+          let secondY = (e=0) => end.top - start.top + e;
+          let aroundSideX = (e=0) => path.right + path.left - start.left + e;
+          let aroundSideY = (e=0) => path.bottom - start.top + e;
+          let overWallX = (e=0) => wall.left - start.left + e;
+          let overWallY = (e=0) => wall.top - start.top + e;
             let animation = anime.timeline({
                 easing: "easeInOutCubic",
                 complete: function(anim) {
@@ -44,28 +43,44 @@
                 duration: 1
               }
             }).add({
+              targets: ".catapult",
+              width: [0, "40px"],
+              easing: 'linear',
+              duration: 1000,
+            }, 1000).add({
+              targets: ".mv-5",
+              translateX: [0, 40],
+              translateY: [0,0],
+              easing: 'linear',
+              duration: 1000,
+            }, 1000).add({
+              targets: ".catapult-throbber",
+              rotateZ: [0, -360],
+              easing: 'linear',
+              duration: 1000,
+            }).add({
               targets: ".mv-5",
               translateX: [
                 {
-                  value: [0, overWallX(-5)],
-                  easing: "linear"
+                  value: [40, overWallX(-10)],
+                  easing: "linear",
                 },
                 {
-                  value: [overWallX(-5), firstX()],
+                  value: [overWallX(-10), firstX()],
                   easing: "easeOutCubic",
                 },
               ],
               translateY: [
                 {
-                  value: [0, overWallY(-10)],
-                  easing: "easeInOutCubic"
+                  value: [0, overWallY(-50)],
+                  easing: "easeInOutCubic",
                 },
                 {
-                  value: [overWallY(-10), firstY()],
+                  value: [overWallY(-50), firstY()],
                   easing: "linear",
                 },
               ],
-
+              rotateZ: [0, 720],
               easing: "linear",
               duration: 1000,
             }).add({
@@ -112,9 +127,13 @@
               ],
               easing: "easeOutCubic",
               duration: 1000,
-            })
+            }).add({
+              targets: ".catapult",
+              width: ["40px", 0],
+              easing: 'linear',
+              duration: 1000,
+            }, 3500)
             return animation
         }
 
-
-catapult()
+        catapult()

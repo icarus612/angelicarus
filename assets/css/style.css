@@ -64,6 +64,19 @@
     top: 50%;
     right: 8px !important;
 }
+.catapult-throbber {
+    top: 50%;
+    left: 15% !important;
+}
+.catapult{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -1px;
+  height: 2px;
+  background-color:  rgba(105, 50, 151, .9);
+
+}
 .mid-throbber {
     top: 50%;
     left: 68px !important;

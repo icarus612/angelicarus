@@ -1,13 +1,14 @@
-$(window).scroll(function() {
-  let wScroll = $(this).scrollTop();
-  let parallax = {}
-  parallax[".parallaxWrapper"] = -80;
+let parallaxAnimation = (e) => {
 
-  for (let key in parallax){
-    $(key).css({
-      'transform' : 'translate(0px, '+ wScroll / parallax[key] +'%)'
+    let top = document.querySelector(e).getBoundingClientRect().top
+    let animation =  anime({
+      targets: e,
+      translateY: top+1,
+      duration: 1000,
+      easing: "linear",
+      complete: function(anim) {
+          parallaxAnimation(e)
+      }
     });
+    return animation
   }
-
-
-});

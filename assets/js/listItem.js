@@ -18,14 +18,16 @@
           }
             let animation = anime.timeline({
                 easing: "easeInOutCubic",
-
+                complete: function(anim) {
+                    animateLI()
+                },
             }).add({
                 targets: ".animated-dot",
                 translateY: [-5, startY()],
                 translateX: [startX(), startX()],
                 duration: 1000,
                 easing: "easeOutCubic",
-            }, 800).add({
+            }, 887).add({
               targets: ".pulse2",
               opacity: [1, 0],
               scale: [
@@ -161,3 +163,4 @@
             })
             return animation
         }
+animateLI()
