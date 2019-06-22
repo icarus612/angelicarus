@@ -57,7 +57,7 @@
               targets: ".catapult-throbber",
               rotateZ: [0, -360],
               easing: 'linear',
-              duration: 1000,
+              duration: 500,
             }).add({
               targets: ".mv-5",
               translateX: [
@@ -80,7 +80,7 @@
                   easing: "linear",
                 },
               ],
-              rotateZ: [0, 720],
+              rotateZ: [0, 1440],
               easing: "linear",
               duration: 1000,
             }).add({
@@ -96,26 +96,26 @@
               translateX: [
                 {
                   value: [firstX(), aroundSideX(30)],
-                  duration: 400,
+                  duration: 550,
 
                 },
                 {
                   value: [aroundSideX(30), secondX()],
-                  delay: 800,
-                  duration: 1500,
+                  delay: 1000,
+                  duration: 1550,
                 }
 
               ],
               translateY: [
                 {
                   value: [firstY(), aroundSideY(50)],
-                  delay: 400,
-                  duration: 800,
+                  delay: 550,
+                  duration: 1000,
                 },
                 {
                   value: [aroundSideY(50), secondY()],
-                  delay: 1500,
-                  duration: 600,
+                  delay: 1550,
+                  duration: 700,
                 }
               ],
               easing: "linear",

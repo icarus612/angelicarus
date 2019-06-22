@@ -1,19 +1,15 @@
 
 
         let firstAnimation = () =>{
-          let locate = document.querySelector("#whereAmI"),
-              stage = document.querySelector("#top"),
-              container = document.querySelector("#top-container"),
+          let second = document.querySelector(".second-throbber").getBoundingClientRect(),
+              start = document.querySelector(".first-throbber").getBoundingClientRect(),
+              spring = document.querySelector(".spring").getBoundingClientRect(),
               catapult = document.querySelector(".catapult-throbber").getBoundingClientRect(),
-              h1 = document.querySelector("#dot-start"),
-              h2 = document.querySelector("#stage"),
-              fullHeight = (e=1) => stage.offsetHeight*e,
-              fullWidth = (e=1) => stage.offsetWidth*e,
-              startX = (e=0) => fullWidth() - container.offsetWidth + e
-              startY = (e=0) => container.offsetHeight/2 + e,
-              howFarX = (e=1) => locate.clientWidth*e,
-              howFarY = (e=6) => (h1.clientHeight - h2.clientHeight) + e + h2.clientHeight/2;
-console.log(startX())
+              top = document.querySelector("#top-container").getBoundingClientRect(),
+              step = document.querySelector(".step2").getBoundingClientRect(),
+              endY = (s, e, p=0) =>  (e.top + e.bottom)/2 - (s.top + s.bottom)/2 +p,
+              endX = (s, e, p=0) =>  (e.left + e.right)/2 - (s.left + s.right)/2 +p;
+
             let animation =	anime.timeline({
     					easing: "linear",
               complete: function(anim) {
@@ -21,7 +17,7 @@ console.log(startX())
               },
     				}).add({
     					targets: ".mv-6",
-    					translateX: [0, howFarX(6)],
+    					translateX: [0, endX(start, second)],
               translateY: [0, 0],
     					duration: 1100,
               delay: 3830,
@@ -34,8 +30,9 @@ console.log(startX())
     					easing: "easeOutCubic",
     					duration: 1000,
     				}).add({
-    					targets: ".mv-6",
-    					translateY: [0, startY(20)],
+              targets: ".mv-6",
+              translateX: [ endX(start, second), endX(start, spring)],
+    					translateY: [0, endY(start, spring, 6)],
     					duration: 1300,
     				}).add({
     					targets: ".spring",
@@ -49,18 +46,18 @@ console.log(startX())
     					targets: ".mv-6",
     					translateX:
     						{
-    							value: [howFarX(6), howFarX(1)],
+    							value: [endX(start, spring), endX(start, spring)/2],
     							duration: 910,
     							easing: "linear"
     						},
     					translateY: [
     						{
-    							value: [startY(20), startY(-70)],
+    							value: [endY(start, spring), endY(top, spring)],
     							duration: 450,
     							easing: "easeOutCirc"
     						},
     						{
-    							value: [startY(-70), startY(170)],
+    							value: [endY(top, spring), endY(start, step, -5) -step.height/2],
     							duration: 450,
     							easing: "easeInCirc"
     						},
@@ -94,7 +91,7 @@ console.log(startX())
               },
               translateX:
                 {
-                  value: [howFarX(1), -catapult.right-startX(5)],
+                  value: [ endX(start, spring)/2, endX(start, catapult)],
                   duration: 910,
                   easing: "linear",
                   delay: 50,
@@ -102,14 +99,14 @@ console.log(startX())
               translateY: [
 
                 {
-                  value: [startY(170), startY(10)],
+                  value: [endY(start, step, -5) -step.height/2, endY(top, spring)],
                   duration: 450,
                   easing: "easeOutCirc",
                   delay: 50,
 
                 },
                 {
-                  value: [startY(10), startY(170)+howFarY()],
+                  value: [endY(top, spring), endY(start, catapult)],
                   duration: 450,
                   easing: "easeInCirc"
                 },
